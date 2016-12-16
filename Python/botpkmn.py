@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+Ôªø# -*- coding: utf-8 -*-
 
 import sys
 import re
@@ -16,7 +16,7 @@ con = sqlite3.connect('pkmnbot.db',check_same_thread = False)
 c = con.cursor()
 
 TOKEN = 'TOKEN' 
-INSULTS = ["eres gilipollas", "cÛmeme los huevos", "abrazafarolas","bocachancla", "parguela","eres tan feo que ni tu madre estaba en el parto", "me voy a cagar en las cuatro farolas que alumbran la tumba de tu puta madre", "dile a tu madre que deje de cambiarse de pintalabios que me est· dejando la polla como un arcoiris", "eres tan feo que cuando te miras al espejo te pegas en defensa propia", "tu madre es tan puta que se quitÛ un ojo para tener un agujero m·s.", "eres tan gordo que tu grupo sanguÌneo es A-peritivo", "eres homoretrasado","sabes menos de pokÈmon que Fola", "eres m·s in˙til que Hydreigon firme", "eres tan tonto que te han cogido de tronista"]
+INSULTS = ["eres gilipollas", "c√≥meme los huevos", "abrazafarolas","bocachancla", "parguela","eres tan feo que ni tu madre estaba en el parto", "me voy a cagar en las cuatro farolas que alumbran la tumba de tu puta madre", "dile a tu madre que deje de cambiarse de pintalabios que me est√° dejando la polla como un arcoiris", "eres tan feo que cuando te miras al espejo te pegas en defensa propia", "tu madre es tan puta que se quit√≥ un ojo para tener un agujero m√°s.", "eres tan gordo que tu grupo sangu√≠neo es A-peritivo", "eres homoretrasado","sabes menos de pok√©mon que Fola", "eres m√°s in√∫til que Hydreigon firme", "eres tan tonto que te han cogido de tronista"]
 
 
 usuarios = [line.rstrip('\n') for line in open('users.txt')] 
@@ -24,7 +24,7 @@ usuarios = [line.rstrip('\n') for line in open('users.txt')]
 bot = telebot.TeleBot(TOKEN) 
 
 
-grupos_admitidos = -20432512 #AquÌ se tendr·n que aÒadir a mano los ID de los grupos que usen el bot
+grupos_admitidos = -20432512 #Aqu√≠ se tendr√°n que a√±adir a mano los ID de los grupos que usen el bot
 admins = 9662836, 1896312
 
 def listener(messages):
@@ -43,8 +43,8 @@ def listener(messages):
 			def on_user_joins(message):
 				cid = message.chat.id
 				nun = message.new_chat_member.username
-				bot.send_message(cid, "Bienvenido al grupo de *PokÈmon* *@" + str(nun) + "*, vamos a proceder a hacerte la encuesta de entrada:\n 1.- øNostalfag? \n 2.- øCharmander, Squirtle o Bulbasaur?\n 3.-øLegalfag o Piratafag?\n 4.-øFola sÌ o Fola no?\n\nSi te interesa saber las funciones que tiene RotomDex, ·breme chat en PRIVADO y hazme /help", parse_mode = "Markdown")
-			#bot.send_message(cid, "Bienvenido al grupo de *PokÈmon* *@" + str("jaja") + "*, vamos a proceder a hacerte la encuesta de entrada:\n 1.- øNostalfag? \n 2.- øCharmander, Squirtle o Bulbasaur?\n 3.-øLegalfag o Piratafag?\n 4.-øFola sÌ o Fola no?", parse_mode = "Markdown")
+				bot.send_message(cid, "Bienvenido al grupo de *Pok√©mon* *@" + str(nun) + "*, vamos a proceder a hacerte la encuesta de entrada:\n 1.- ¬øNostalfag? \n 2.- ¬øCharmander, Squirtle o Bulbasaur?\n 3.-¬øLegalfag o Piratafag?\n 4.-¬øFola s√≠ o Fola no?\n\nSi te interesa saber las funciones que tiene RotomDex, √°breme chat en PRIVADO y hazme /help", parse_mode = "Markdown")
+			#bot.send_message(cid, "Bienvenido al grupo de *Pok√©mon* *@" + str("jaja") + "*, vamos a proceder a hacerte la encuesta de entrada:\n 1.- ¬øNostalfag? \n 2.- ¬øCharmander, Squirtle o Bulbasaur?\n 3.-¬øLegalfag o Piratafag?\n 4.-¬øFola s√≠ o Fola no?", parse_mode = "Markdown")
 			#if m.content_type == 'new_chat_member':
 			if cid > 0:
 				mensaje = str(m.chat.first_name) + " [" + str(cid) + "]: " + m.text
@@ -77,7 +77,7 @@ def command_boobs(message):
         else:
             bot.send_message(message.chat.id, 'http://media.oboobs.ru/' + data[0]['preview'])
             return
-    bot.send_message(message.chat.id, 'øQuÈ es una teta?')
+    bot.send_message(message.chat.id, '¬øQu√© es una teta?')
     
     
 @bot.message_handler(commands=['culos'])
@@ -93,7 +93,7 @@ def command_butts(message):
         else:
             bot.send_message(message.chat.id, 'http://media.obutts.ru/' + data[0]['preview'])
             return
-    bot.send_message(message.chat.id, 'øQuÈ es un culo?')
+    bot.send_message(message.chat.id, '¬øQu√© es un culo?')
 	
 	
 ##############################################################
@@ -102,7 +102,7 @@ def command_butts(message):
 @bot.message_handler(commands=['plati'])
 def command_plati(m):
 	cid = m.chat.id
-	bot.reply_to(m,'<a href="https://www.forocoches.com/foro/showthread.php?t=5292857">Plataforma PokÈmon Forocoches</a>', parse_mode="HTML", disable_web_page_preview=True)
+	bot.reply_to(m,'<a href="https://www.forocoches.com/foro/showthread.php?t=5292857">Plataforma Pok√©mon Forocoches</a>', parse_mode="HTML", disable_web_page_preview=True)
 
 
 @bot.message_handler(commands=['liga'])
@@ -118,18 +118,18 @@ def command_info(m):
 		dex = m.text.split(' ', 1)[1].replace(" ","_")
 		bot.reply_to(m,'http://es.pokemon.wikia.com/wiki/' + str(dex), disable_web_page_preview=True)	
 	except:
-		bot.send_message(cid, "El formato del comando es /info *X* donde X es el nombre del pokÈmon, movimiento u objeto.", parse_mode = "Markdown")
+		bot.send_message(cid, "El formato del comando es /info *X* donde X es el nombre del pok√©mon, movimiento u objeto.", parse_mode = "Markdown")
 		
 
 @bot.message_handler(commands=['festiplaza'])
 def command_fiestiplaza(m):
 	cid = m.chat.id
-	bot.reply_to(m,'<a href="https://docs.google.com/document/d/1tBMEb8xfogGqUqbxHuWC6LupSe7-3bKbCpGVF8nSVRA/edit">Toda la informaciÛn sobre la Festiplaza.</a>', parse_mode="HTML", disable_web_page_preview=True)
+	bot.reply_to(m,'<a href="https://docs.google.com/document/d/1tBMEb8xfogGqUqbxHuWC6LupSe7-3bKbCpGVF8nSVRA/edit">Toda la informaci√≥n sobre la Festiplaza.</a>', parse_mode="HTML", disable_web_page_preview=True)
 	
 @bot.message_handler(commands=['resort'])
 def command_resort(m):
 	cid = m.chat.id
-	bot.reply_to(m,'<a href="https://docs.google.com/document/d/1ANGMKXv9zQBh1iYYGxthpp5kGueDpbBYCseR-bsJc60/edit">Toda la informaciÛn sobre el Resort.</a>', parse_mode="HTML", disable_web_page_preview=True)
+	bot.reply_to(m,'<a href="https://docs.google.com/document/d/1ANGMKXv9zQBh1iYYGxthpp5kGueDpbBYCseR-bsJc60/edit">Toda la informaci√≥n sobre el Resort.</a>', parse_mode="HTML", disable_web_page_preview=True)
 	
 	
 	
@@ -162,7 +162,7 @@ def command_start(m):
 @bot.message_handler(commands=['help'])
 def command_help(m):
 	cid = m.chat.id
-	bot.send_message(cid, "Los comandos de este bot son los siguientes:\n/addfc XXXX-XXXX-XXXX   ----  AÒadir tu Friend Code a la lista. \n/editfc XXXX-XXXX-XXXX   ---- Editar tu Friend Code guardado.  \n/fc  ---- Te permite ver la lista de Friend Code del grupo. \n/mifc  ---- Te permite ver tu *Friend Code*. \n!stats P  ---- DÛnde P es un pokÈmon, devuelve los stats y sus habilidades. \n/evs ---- Muestra una lista para farmear evs. \n/plati  -----  Devuelve el link de la plataforma pokÈmon de forocoches. \n/liga  -----  Devuelve el link de la liga pokÈmon de forocoches. \n/info X  ---- Devuelve el link de wikidex con lo introducido.")
+	bot.send_message(cid, "Los comandos de este bot son los siguientes:\n/addfc XXXX-XXXX-XXXX   ----  A√±adir tu Friend Code a la lista. \n/editfc XXXX-XXXX-XXXX   ---- Editar tu Friend Code guardado.  \n/fc  ---- Te permite ver la lista de Friend Code del grupo. \n/mifc  ---- Te permite ver tu *Friend Code*. \n!stats P  ---- D√≥nde P es un pok√©mon, devuelve los stats y sus habilidades. \n/evs ---- Muestra una lista para farmear evs. \n/plati  -----  Devuelve el link de la plataforma pok√©mon de forocoches. \n/liga  -----  Devuelve el link de la liga pok√©mon de forocoches. \n/info X  ---- Devuelve el link de wikidex con lo introducido.")
 
 
 
@@ -173,9 +173,9 @@ bot.polling(none_stop=True)
 @bot.message_handler(commands=['evs'])
 def command_evs(m):
 	cid = m.chat.id
-	bot.reply_to(m,'*HP*\n*ñ* `Caterpie` : Ruta 1. 1 EV de HP\n*ñ* `Makuhita` : Ruta 2. 1 EV de HP\n\n*Ataque*\n*ñ* `Pikipek` : Ruta 1. 1 EV de Ataque\n*ñ* `Yangoos` : Ruta 1, Ruta 2 (Por el dÌa). 1 EV de Ataque\n*ñ* `Mankey` : Ruta 3. 1 EV de Ataque\n\n*Defensa*\n*ñ* `Roggenrola` : Colina Dequilate. 1 EV de Defensa\n*ñ* `Cubone` : ¡rea Volc·nica Wela. 1 EV de Defensa\n*ñ* `Geodude` : Ruta 12. 1 EV de Defensa\n*ñ* `Torkoal` : Ruta 12. 2 EVs de Defensa\n\n*Ataque Especial*\n*ñ* `Magnemite` : Escuela de Entrenadores (Ruta 1). 1 EV de Ataque Especial\n*ñ* `Oricorio` : Jardines de Melemele. 2 EVs de Ataque Especial\n\n*Defensa Especial*\n*ñ* `Tentacool` : Mar de Melemele (Surf). 1 EV de Defensa Especial\n*ñ* `Drowzee` : Ruta 2. 1 EV de Defensa Especial\n\n*Velocidad*\n*ñ* `Wingull` : Ruta 1, Afueras de Akala. 1 EV de Velocidad\n*ñ* `Rattata de Alola` : Ruta 1, Ruta 2 (Por la noche). 1 EV de Velocidad\n*ñ* `Meowth de Alola` : Escuela de Entrenadores (Ruta 1), Ruta 2. 1 EV de Velocidad\n*ñ* `Spearow` : Ruta 2, Ruta 3. 1 EV de Velocidad', parse_mode="markdown", disable_web_page_preview=True)
+	bot.reply_to(m,'*HP*\n*‚Äì* `Caterpie` : Ruta 1. 1 EV de HP\n*‚Äì* `Makuhita` : Ruta 2. 1 EV de HP\n\n*Ataque*\n*‚Äì* `Pikipek` : Ruta 1. 1 EV de Ataque\n*‚Äì* `Yangoos` : Ruta 1, Ruta 2 (Por el d√≠a). 1 EV de Ataque\n*‚Äì* `Mankey` : Ruta 3. 1 EV de Ataque\n\n*Defensa*\n*‚Äì* `Roggenrola` : Colina Dequilate. 1 EV de Defensa\n*‚Äì* `Cubone` : √Årea Volc√°nica Wela. 1 EV de Defensa\n*‚Äì* `Geodude` : Ruta 12. 1 EV de Defensa\n*‚Äì* `Torkoal` : Ruta 12. 2 EVs de Defensa\n\n*Ataque Especial*\n*‚Äì* `Magnemite` : Escuela de Entrenadores (Ruta 1). 1 EV de Ataque Especial\n*‚Äì* `Oricorio` : Jardines de Melemele. 2 EVs de Ataque Especial\n\n*Defensa Especial*\n*‚Äì* `Tentacool` : Mar de Melemele (Surf). 1 EV de Defensa Especial\n*‚Äì* `Drowzee` : Ruta 2. 1 EV de Defensa Especial\n\n*Velocidad*\n*‚Äì* `Wingull` : Ruta 1, Afueras de Akala. 1 EV de Velocidad\n*‚Äì* `Rattata de Alola` : Ruta 1, Ruta 2 (Por la noche). 1 EV de Velocidad\n*‚Äì* `Meowth de Alola` : Escuela de Entrenadores (Ruta 1), Ruta 2. 1 EV de Velocidad\n*‚Äì* `Spearow` : Ruta 2, Ruta 3. 1 EV de Velocidad', parse_mode="markdown", disable_web_page_preview=True)
 
 @bot.message_handler(commands=['natus'])
 def command_natu(m):
 	cid = m.chat.id
-	bot.reply_to(m,"*Naturalezas*[†](http://i.imgur.com/IRFr5SG.jpg)", parse_mode="Markdown")
+	bot.reply_to(m,"*Naturalezas*[¬†](http://i.imgur.com/IRFr5SG.jpg)", parse_mode="Markdown")
