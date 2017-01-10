@@ -24,8 +24,10 @@ usuarios = [line.rstrip('\n') for line in open('users.txt')]
 bot = telebot.TeleBot(TOKEN) 
 
 
-grupos_admitidos = -20432512 #Aquí se tendrán que añadir a mano los ID de los grupos que usen el bot
-admins = 9662836, 1896312
+grupos_admitidos = -1001087339246, -1001031662216, -1001059767714 #Aquí se tendrán que añadir a mano los ID de los grupos que usen el bot (grupo, liga, asd)
+admins = 1896312, 9662836
+jan = 1896312
+
 
 def listener(messages):
 	for m in messages:
@@ -40,23 +42,52 @@ def listener(messages):
 ##########################################################
 #################### Encuesta Bienvenida #################
 			@bot.message_handler(func=lambda m: True, content_types=['new_chat_member'])
-			def on_user_joins(message):
-				cid = message.chat.id
-				nun = message.new_chat_member.username
-				bot.send_message(cid, "Bienvenido al grupo de *Pokémon* *@" + str(nun) + "*, vamos a proceder a hacerte la encuesta de entrada:\n 1.- ¿Nostalfag? \n 2.- ¿Charmander, Squirtle o Bulbasaur?\n 3.-¿Legalfag o Piratafag?\n 4.-¿Fola sí o Fola no?\n\nSi te interesa saber las funciones que tiene RotomDex, ábreme chat en PRIVADO y hazme /help", parse_mode = "Markdown")
-			#bot.send_message(cid, "Bienvenido al grupo de *Pokémon* *@" + str("jaja") + "*, vamos a proceder a hacerte la encuesta de entrada:\n 1.- ¿Nostalfag? \n 2.- ¿Charmander, Squirtle o Bulbasaur?\n 3.-¿Legalfag o Piratafag?\n 4.-¿Fola sí o Fola no?", parse_mode = "Markdown")
-			#if m.content_type == 'new_chat_member':
-			if cid > 0:
-				mensaje = str(m.chat.first_name) + " [" + str(cid) + "]: " + m.text
+			def on_user_joins(m):
+				cid = m.chat.id
+				cname = m.chat.title
+			#	nun = "@{}".format(m.from_user.new_chat_member.username) if m.from_user.username else m.from_user.first_name
+				if (m.new_chat_member.username is None):
+					nun = m.new_chat_member.first_name
+					if (m.new_chat_member.last_name is not None):
+						nun += " "
+						nun += m.new_chat_member.last_name
+					else: 
+						bienvenida = "Bienvenido al grupo"
+						bienvenida += str(cname)
+						bienvenida += " "
+				else:
+					nun = m.new_chat_member.username
+					bienvenida = "Bienvenido al grupo "
+					bienvenida += str(cname)
+					bienvenida += " @"
+				#	bienvenida += "<b>Pokémon</b> @"
+				bot.send_message(cid, str(bienvenida) + str(nun) +
+				", vamos a proceder a hacerte la encuesta de entrada:\n 1.- ¿Nostalfag? "
+				"\n 2.- ¿Charmander, Squirtle o Bulbasaur?\n 3.-¿Legalfag o Piratafag?\n " 
+				"4.-¿Fola sí o Fola no?\n<a href='https://raw.githubusercontent.com/Intervencion/PKMNFCbot/master/Audios/pokemon.mp3'> </a>)\nSi te interesa saber las funciones que tiene RotomDex, "
+				"ábreme chat en PRIVADO y hazme /help", parse_mode = "HTML")
+			mensaje = "User: " + str(m.from_user.first_name) + "\n"
+			if cid < 0:
+				mensaje += "Chat: " + str(m.chat.title) + "\n"
+				mensaje += "UserID: [" + str(uid) + "]"
+			if cid < 0:
+				mensaje += " ChatID: [" + str(cid) + "]"
+				mensaje += "\n"
+				mensaje += "Mensaje: " + m.text + "\n"
+				mensaje += "-------------------------------\n"
 			else:
-				mensaje = str(m.from_user.first_name) + "[" + str(cid) + "]: " + m.text 
-			f = open('log.txt', 'a')
-			f.write(mensaje + "\n")
-			f.close()
-			patata = open('id.txt', 'a')
-			patata.write("@" + str(uname) + "[" + str(uid) + "]" + "\n")
-			patata.close()
-			print (str(cid), str(uid), mensaje)
+				mensaje += "UserID: [" + str(uid) + "]\n"
+				mensaje += "Mensaje: " + m.text + "\n"
+				mensaje += "-------------------------------\n"
+				
+			if(m.text.startswith("!") or m.text.startswith("/")):
+				f = open('log.txt', 'a')
+				f.write(mensaje)
+				f.close()
+				patata = open('id.txt', 'a')
+				patata.write("@" + str(uname) + "[" + str(uid) + "]" + "\n")
+				patata.close()
+				print (mensaje)
 			
 			
 bot.set_update_listener(listener)
