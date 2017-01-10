@@ -45,7 +45,6 @@ def listener(messages):
 			def on_user_joins(m):
 				cid = m.chat.id
 				cname = m.chat.title
-			#	nun = "@{}".format(m.from_user.new_chat_member.username) if m.from_user.username else m.from_user.first_name
 				if (m.new_chat_member.username is None):
 					nun = m.new_chat_member.first_name
 					if (m.new_chat_member.last_name is not None):
