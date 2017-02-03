@@ -1,0 +1,25 @@
+User: Jan
+Chat: asdasd
+UserID: [1896312] ChatID: [-1001059767714]
+Mensaje: /mifc@PKMNFCbot
+-------------------------------
+User: Jan
+Chat: asdasd
+UserID: [1896312] ChatID: [-1001059767714]
+Mensaje: /mifc@PKMNFCbot
+-------------------------------
+User: Jan
+Chat: asdasd
+UserID: [1896312] ChatID: [-1001059767714]
+Mensaje: /mifc@PKMNFCbot
+-------------------------------
+User: Jan
+Chat: 👾 Grupo Pokémon 👾
+UserID: [1896312] ChatID: [-1001031662216]
+Mensaje: /help@PKMNFCbot
+-------------------------------
+User: Jan
+Chat: 👾 Grupo Pokémon 👾
+UserID: [1896312] ChatID: [-1001031662216]
+Mensaje: /stats tapu koko
+-------------------------------
