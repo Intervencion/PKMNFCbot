@@ -1,0 +1,10 @@
+*.db
+Bot/users.txt
+Bot/NOTOCAR/fc.py
+Bot/NOTOCAR/pokemons.py
+Bot/Untitled1
+Bot/pkmnbot.db-journal
+*.db
+Bot/sqlite.py
+Bot/users.txt
+Bot/pkmnbot.db
