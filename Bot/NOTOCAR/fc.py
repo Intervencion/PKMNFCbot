@@ -145,6 +145,7 @@ def command_addfc(m):
 		print(str(cid))
 		print("VAMOS A LEERLO SIN TRY")
 		try:
+			uname2 = f'@{uname}'
 			fc = m.text.split(' ', 1)[1].replace(" ", "")
 			#print("voy a capitalizar")
 			#fc.capitalize()
@@ -257,6 +258,7 @@ def command_editfc(m):
 	else:
 		uname = uname
 	try:
+		uname2 = f'@{uname}'
 		fc = m.text.split(' ', 1)[1].replace(" ","")
 		pattern = '^\d{4}-\d{4}-\d{4}$'
 		if re.match(pattern, fc, flags=0):
@@ -266,7 +268,7 @@ def command_editfc(m):
 				  #c.execute(f"UPDATE Usuarios SET 'FC' = '{fc}', 'ALIAS'='@{uname}' WHERE idUsuario = '{uid}'")
 				  c.execute("UPDATE Usuarios SET 'FC'=?, 'ALIAS'=? WHERE idUsuario=?", (fc, uname2, uid,))
 				  print(c.fetchone())
-				  bot.send_message( cid, f"Se ha cambiado el registro de *{uname}* ahora con *Friend Code {fc}*.", parse_mode = "Markdown")
+				  bot.send_message( cid, f"Se ha cambiado el registro de *{uname2}* ahora con *Friend Code {fc}*.", parse_mode = "Markdown")
 				  con.commit()
 				except sqlite3.Error:
 				  bot.send_message( cid, "Ha ocurrido un error. Inténtalo de nuevo.")
@@ -294,6 +296,7 @@ def command_deletebtag(m):
 	else:
 		uname = m.from_user.username
 	try:
+		uname2 = f'@{uname}'
 		fcid = m.text.split(' ', 1)[1].upper()
 		print(fcid)
 		if (str(fcid).startswith("MI FC")):
@@ -349,7 +352,8 @@ def command_mifc(m):
 		uname = m.from_user.username
 
 	
-	try:
+	try:	
+		uname2 = f'@{uname}'
 		#c.execute(f"SELECT ALIAS,FC from Usuarios WHERE idUsuario={uid}")
 		c.execute('SELECT ALIAS,FC from Usuarios WHERE idUsuario=?', (uid,))
 		
