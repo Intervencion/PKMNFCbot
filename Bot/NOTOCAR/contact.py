@@ -25,6 +25,7 @@ def command_contact(m):
 		print ("Mensaje guardado en contacto.txt")
 		bot.reply_to(m,"Tu mensaje ha sido recibido.")	
 		bot.send_message(admins[0], f"Hay un mensaje nuevo de @{uname} [{uid}] enviado desde <i>{mct}</i> [{cid}] en <code>contacto.txt</code>.", parse_mode = "HTML")
+		bot.send_message(admins[1], f"Hay un mensaje nuevo de @{uname} [{uid}] enviado desde <i>{mct}</i> [{cid}] en <code>contacto.txt</code>.", parse_mode = "HTML")
 		try:
 			c.execute("SELECT Contador FROM TContador WHERE Nombre ='contact'")
 			for i in c:
@@ -42,6 +43,5 @@ def command_contact(m):
 			mensaje += f"Mensaje: {texto}\n"
 			mensaje += "-------------------------------\n"
 			bot.send_message(admins[0], mensaje, parse_mode = "Markdown")
-			bot.send_message(admins[1], mensaje, parse_mode = "Markdown")
 	except:
 		bot.send_message(cid, "El formato del comando es /contact *X* donde X es el mensaje que quieras enviar.", parse_mode = "Markdown")

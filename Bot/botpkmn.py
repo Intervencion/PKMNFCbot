@@ -19,10 +19,10 @@ print(Color(
     '{autored}[{/red}{autoyellow}+{/yellow}{autored}]{/red} {autocyan}Plugins cargados.{/cyan}'))
 
 
-try:
-    bot.send_message(admins[0], "@PKMNFCbot ha sido encendido")
-except Exception as e:
-    bot.send_message(admins[0], str(e))
+#try:
+#    bot.send_message(admins[0], "@PKMNFCbot ha sido encendido")
+#except Exception as e:
+#    bot.send_message(admins[0], str(e))
     
 #    try:
 #    for admin in admins:

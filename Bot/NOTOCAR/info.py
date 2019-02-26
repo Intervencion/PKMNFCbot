@@ -5,7 +5,7 @@ def command_info(m):
 	cid = m.chat.id
 	try:
 		dex = m.text.split(' ', 1)[1].replace(" ","_")
-		bot.reply_to(m,f'http://es.pokemon.wikia.com/wiki/{dex}', disable_web_page_preview=True)
+		bot.reply_to(m,f'https://www.wikidex.net/wiki/{dex}', disable_web_page_preview=True)
 		try:
 			c.execute("SELECT Contador FROM TContador WHERE Nombre ='info'")
 			for i in c:

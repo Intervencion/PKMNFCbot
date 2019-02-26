@@ -1388,3 +1388,71 @@ NULL, 10105, 'Exeggutor Alola', 'https://raw.githubusercontent.com/Intervencion/
 'Cuerpo maldito', 'Pararrayos' , 'Cabeza roca', 'Fuego', 'Fantasma', 
 0000000, 0000000, 0000000, 0000000, 0000000, 0000000)
 """)
+
+c.execute("""
+INSERT INTO POKEMON (
+idpkmn,Ndex,Nombre,Linkfoto,
+hp,atk,defe,atksp,defsp,spd,
+hab1,hab2,habo,tipo1,tipo2,
+evhp,evatk,evdefe,evatksp,evdefsp,evspd)
+VALUES (
+NULL, 803, 'Poipole', 'https://raw.githubusercontent.com/Intervencion/PKMNFCbot/master/Sprites/00803.png', 
+67, 73, 67, 73, 67, 73, 
+'Ultraimpulso', ' ' , ' ', 'Veneno', ' ', 
+0000000, 0000000, 0000000, 0000000, 0000000, 0000000)
+""")
+
+c.execute("""
+INSERT INTO POKEMON (
+idpkmn,Ndex,Nombre,Linkfoto,
+hp,atk,defe,atksp,defsp,spd,
+hab1,hab2,habo,tipo1,tipo2,
+evhp,evatk,evdefe,evatksp,evdefsp,evspd)
+VALUES (
+NULL, 804, 'Naganadel', 'https://raw.githubusercontent.com/Intervencion/PKMNFCbot/master/Sprites/00804.png', 
+73, 73, 73, 127, 73, 121, 
+'Ultraimpulso', ' ' , ' ', 'Veneno', 'Dragón', 
+0000000, 0000000, 0000000, 0000000, 0000000, 0000000)
+""")
+
+
+c.execute("""
+INSERT INTO POKEMON (
+idpkmn,Ndex,Nombre,Linkfoto,
+hp,atk,defe,atksp,defsp,spd,
+hab1,hab2,habo,tipo1,tipo2,
+evhp,evatk,evdefe,evatksp,evdefsp,evspd)
+VALUES (
+NULL, 805, 'Stakataka', 'https://raw.githubusercontent.com/Intervencion/PKMNFCbot/master/Sprites/00805.png', 
+61, 131, 211, 53, 101, 13, 
+'Ultraimpulso', ' ' , ' ', 'Roca', 'Acero', 
+0000000, 0000000, 0000000, 0000000, 0000000, 0000000)
+""")
+
+
+c.execute("""
+INSERT INTO POKEMON (
+idpkmn,Ndex,Nombre,Linkfoto,
+hp,atk,defe,atksp,defsp,spd,
+hab1,hab2,habo,tipo1,tipo2,
+evhp,evatk,evdefe,evatksp,evdefsp,evspd)
+VALUES (
+NULL, 806, 'Blacephalon', 'https://raw.githubusercontent.com/Intervencion/PKMNFCbot/master/Sprites/00806.png', 
+53, 127, 53, 151, 79, 107, 
+'Ultraimpulso', ' ' , ' ', 'Fuego', 'Fantasma', 
+0000000, 0000000, 0000000, 0000000, 0000000, 0000000)
+""")
+
+
+c.execute("""
+INSERT INTO POKEMON (
+idpkmn,Ndex,Nombre,Linkfoto,
+hp,atk,defe,atksp,defsp,spd,
+hab1,hab2,habo,tipo1,tipo2,
+evhp,evatk,evdefe,evatksp,evdefsp,evspd)
+VALUES (
+NULL, 807, 'Zeraora', 'https://raw.githubusercontent.com/Intervencion/PKMNFCbot/master/Sprites/00807.png', 
+88, 112, 75, 102, 80, 143, 
+'Absorve electricidad', ' ' , ' ', 'Eléctrico', ' ', 
+0000000, 0000000, 0000000, 0000000, 0000000, 0000000)
+""")
