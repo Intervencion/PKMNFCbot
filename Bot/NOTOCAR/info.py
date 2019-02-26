@@ -11,7 +11,7 @@ def command_info(m):
 			for i in c:
 				print(i[0])
 				increment = i[0] +1
-				c.execute("UPDATE TContador SET Contador='" + str(increment) + "' WHERE Nombre = 'info'")
+				c.execute("UPDATE TContador SET Contador = Contador + 1 WHERE Nombre = 'info'")
 		except:
 			mensaje = f"No he contado bien mamá.\n"
 			mensaje += f"User: {ufm}\n"

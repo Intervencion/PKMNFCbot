@@ -8,7 +8,7 @@ def command_fiestiplaza(m):
 		for i in c:
 			print(i[0])
 			increment = i[0] +1
-			c.execute("UPDATE TContador SET Contador='" + str(increment) + "' WHERE Nombre = 'festiplaza'")
+			c.execute("UPDATE TContador SET Contador = Contador + 1 WHERE Nombre = 'festiplaza'")
 	except:
 		mensaje = f"No he contado bien mamá.\n"
 		mensaje += f"User: {ufm}\n"
@@ -34,7 +34,7 @@ def command_resort(m):
 		for i in c:
 			print(i[0])
 			increment = i[0] +1
-			c.execute("UPDATE TContador SET Contador='" + str(increment) + "' WHERE Nombre = 'resort'")
+			c.execute("UPDATE TContador SET Contador = Contador + 1 WHERE Nombre = 'resort'")
 	except:
 		mensaje = f"No he contado bien mamá.\n"
 		mensaje += f"User: {ufm}\n"

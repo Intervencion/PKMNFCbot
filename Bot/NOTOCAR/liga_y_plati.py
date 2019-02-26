@@ -2,13 +2,13 @@ from config import *
 
 @bot.message_handler(commands=['plati'])
 def command_plati(m):
-	bot.reply_to(m,'<a href="http://www.forocoches.com/foro/showthread.php?p=248515995#post248515995">Plataforma Pokémon Forocoches</a>', parse_mode="HTML", disable_web_page_preview=True)
+	bot.reply_to(m,'<a href="https://www.forocoches.com/foro/showthread.php?t=6838079">Plataforma Pokémon Forocoches</a>', parse_mode="HTML", disable_web_page_preview=True)
 	try:
 		c.execute("SELECT Contador FROM TContador WHERE Nombre ='plati'")
 		for i in c:
 			print(i[0])
 			increment = i[0] +1
-			c.execute("UPDATE TContador SET Contador='" + str(increment) + "' WHERE Nombre = 'plati'")
+			c.execute("UPDATE TContador SET Contador = Contador + 1 WHERE Nombre = 'plati'")
 	except:
 		mensaje = f"No he contado bien mamá.\n"
 		mensaje += f"User: {ufm}\n"
@@ -34,7 +34,7 @@ def command_liga(m):
 		for i in c:
 			print(i[0])
 			increment = i[0] +1
-			c.execute("UPDATE TContador SET Contador='" + str(increment) + "' WHERE Nombre = 'liga'")
+			c.execute("UPDATE TContador SET Contador = Contador + 1 WHERE Nombre = 'liga'")
 	except:
 		mensaje = f"No he contado bien mamá.\n"
 		mensaje += f"User: {ufm}\n"

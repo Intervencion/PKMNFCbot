@@ -22,7 +22,6 @@ def command_start(m):
 		for i in c:
 			print(i[0])
 			increment = i[0] +1
-			c.execute("UPDATE TContador SET Contador='" + str(increment) + "' WHERE Nombre = 'start'")
 	except:
 		mensaje = f"No he contado bien mamá.\n"
 		mensaje += f"User: {ufm}\n"

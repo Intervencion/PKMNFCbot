@@ -116,7 +116,7 @@ def command_fc(m):
 				print(i[0])
 				increment = i[0] +1
 				#c.execute("UPDATE TContador SET Contador='" + str(increment) + "' WHERE Nombre = 'fc'")
-				c.execute("UPDATE TContador SET Contador = contador + 1 WHERE Nombre = 'fc'")
+				c.execute("UPDATE TContador SET Contador = Contador + 1 WHERE Nombre = 'fc'")
 		except Exception as e:
 			print(e)
 			mensaje = f"No he contado bien mamá.\n"
@@ -171,7 +171,7 @@ def command_addfc(m):
 						print(i[0])
 						increment = i[0] +1
 						#c.execute("UPDATE TContador SET Contador='" + str(increment) + "' WHERE Nombre = 'addfc'")
-						c.execute("UPDATE TContador SET Contador = contador + 1 WHERE Nombre = 'addfc'")
+						c.execute("UPDATE TContador SET Contador = Contador + 1 WHERE Nombre = 'addfc'")
 				except Exception as e:
 					print(e)
 					mensaje = f"No he contado bien mamá.\n"
@@ -379,7 +379,7 @@ def command_mifc(m):
 				print(i[0])
 				increment = i[0] +1
 				#c.execute("UPDATE TContador SET Contador='" + str(increment) + "' WHERE Nombre = 'mifc'")
-				c.execute("UPDATE TContador SET Contador = contador + 1 WHERE Nombre = 'mifc'")
+				c.execute("UPDATE TContador SET Contador = Contador + 1 WHERE Nombre = 'mifc'")
 		except Exception as e:
 			print(e)
 			mensaje = f"No he contado bien mamá.\n"
