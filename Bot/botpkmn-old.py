@@ -17,7 +17,7 @@ con = sqlite3.connect('pkmnbot.db',check_same_thread = False)
 c = con.cursor()
 pkmn = ""
 
-TOKEN = '292649544:AAG5b8qmrALjvdgUnF0IR1J2McEi-B9QK0M' 
+TOKEN = '' 
 INSULTS = ["eres gilipollas", "cómeme los huevos", "abrazafarolas","bocachancla", "parguela","eres tan feo que ni tu madre estaba en el parto", "me voy a cagar en las cuatro farolas que alumbran la tumba de tu puta madre", "dile a tu madre que deje de cambiarse de pintalabios que me está dejando la polla como un arcoiris", "eres tan feo que cuando te miras al espejo te pegas en defensa propia", "tu madre es tan puta que se quitó un ojo para tener un agujero más.", "eres tan gordo que tu grupo sanguíneo es A-peritivo", "eres homoretrasado","sabes menos de pokémon que Fola", "eres más inútil que Hydreigon firme", "eres tan tonto que te han cogido de tronista"]
 
 usuarios = [line.rstrip('\n') for line in open('users.txt')] 
