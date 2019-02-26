@@ -18,18 +18,27 @@ def existeGrupo(cid):
 	print("Estamos antes del execute de def existeGrupo(cid):")
 	#c.execute(f"SELECT COUNT(*) FROM GRUPO WHERE idGrupo ='{cid}'")
 	c.execute('SELECT COUNT(*) FROM GRUPO WHERE idGrupo=?', (cid,))
-	try:
-		for i in c:
-			print("Vamos a ver si el select de grupo ha devuelto algún elemento")
-			print(f'El resultado del select es: {i[0]}')
-			EG =i[0]
-	
-	except Exception as e:
-		print("except Exception as e: L27")
-		print(e)
+	r = c.fetchone()
+	if r:
+		print("Vamos a ver si el select de grupo ha devuelto algún elemento")
+		print(f'El resultado del select es: {r[0]}')
+		EG =r[0]
+	else: 
 		print("Estamos aquí porque el select nos ha devuelto un elemento vacío")
 		EG = 0
-	
+
+	#try:
+	#	for i in c:
+	#		print("Vamos a ver si el select de grupo ha devuelto algún elemento")
+	#		print(f'El resultado del select es: {i[0]}')
+	#		EG =i[0]
+	#
+	#except Exception as e:
+	#	print("except Exception as e: L27")
+	#	print(e)
+	#	print("Estamos aquí porque el select nos ha devuelto un elemento vacío")
+	#	EG = 0
+	#
 	return EG
 
 def existeUser(uid):
