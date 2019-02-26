@@ -34,7 +34,7 @@ def listener(messages):
                 f.write(mensaje)
                 f.close()
                 print (mensaje)
-                bot.send_message(cid, "Bot under maintenance.")
+                bot.send_message(cid, "Estamos haciendo mejoras al bot. Puede que tarde unas horas en estar operativo de nuevo. Disculpad las molestias. 2019-02-26")
 
 
 bot.set_update_listener(listener)
