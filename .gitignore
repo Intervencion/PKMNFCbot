@@ -1,10 +1,6 @@
-*.db
-Bot/users.txt
-Bot/NOTOCAR/fc.py
-Bot/NOTOCAR/pokemons.py
-Bot/Untitled1
-Bot/pkmnbot.db-journal
-*.db
-Bot/sqlite.py
-Bot/users.txt
-Bot/pkmnbot.db
+Bot\bugs.txt
+Bot\contacto.txt
+Bot\id.txt
+Bot\log.txt
+Bot\pokedex.txt
+Bot\users.txt

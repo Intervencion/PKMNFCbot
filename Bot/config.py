@@ -31,6 +31,7 @@ con = sqlite3.connect('pkmnbot.db',check_same_thread = False)
 c = con.cursor()
 pkmn = ""
 
+TOKEN = '' 
 
 
 usuarios = [line.rstrip('\n') for line in open('users.txt')] 
