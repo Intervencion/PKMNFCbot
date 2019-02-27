@@ -4,3 +4,5 @@ Bot\id.txt
 Bot\log.txt
 Bot\pokedex.txt
 Bot\users.txt
+Bot\NOTOCAR\mysql_connector.py
+Bot/NOTOCAR/mysql_connector.py
