@@ -1,5 +1,5 @@
-from config import *
-
+﻿from config import *
+from mysql_connector import *
 
 def pintar_tipo(tipo):
 	etipo=""
@@ -123,11 +123,18 @@ tipos = {
 	"flying":"Volador"
 }
 
+#cursor.execute("SELECT Ndex,Nombre,Linkfoto,hp,atk,defe,atksp,defsp,spd,hab1,hab2,habo,tipo1,tipo2,evhp,evatk,evdefe,evatksp,evdefsp,evspd from POKEMON WHERE Nombre='" + str(pkmn)+ "'"))
+
 def poke_normal(pkmn):
 	print("1) entro en la función de poke normal")
 	print(pkmn)
 	print("2) El poke con mayus es " + pkmn.capitalize())
-	c.execute("SELECT Ndex,Nombre,Linkfoto,hp,atk,defe,atksp,defsp,spd,hab1,hab2,habo,tipo1,tipo2,evhp,evatk,evdefe,evatksp,evdefsp,evspd from POKEMON WHERE Nombre='" + str(pkmn)+ "'")
+	#c.execute("SELECT Ndex,Nombre,Linkfoto,hp,atk,defe,atksp,defsp,spd,hab1,hab2,habo,tipo1,tipo2,evhp,evatk,evdefe,evatksp,evdefsp,evspd from POKEMON WHERE Nombre='" + str(pkmn)+ "'")
+	try:
+		c.execute("SELECT Ndex,Nombre,Linkfoto,hp,atk,defe,atksp,defsp,spd,hab1,hab2,habo,tipo1,tipo2,evhp,evatk,evdefe,evatksp,evdefsp,evspd from pokemon WHERE Nombre='" + str(pkmn)+ "'")
+	except Exception as e:
+		print(e)
+	print("Voy despues del cursor 'c'")
 	for i in c:
 		dex = i[0]
 		name = i[1]
@@ -149,7 +156,7 @@ def poke_normal(pkmn):
 		evatksp = i[17]
 		evdefsp = i[18]
 		evspd = i[19]
-		
+	print(dex, name,imgpkm, hp, atk, defe, atksp, defsp, spd, hab1, hab2, habo, tipo1, tipo2, evhp, evatk, evdefe, evatksp, evdefsp, evspd)
 	return dex, name,imgpkm, hp, atk, defe, atksp, defsp, spd, hab1, hab2, habo, tipo1, tipo2, evhp, evatk, evdefe, evatksp, evdefsp, evspd
 
 
@@ -271,11 +278,15 @@ def command_stats(m):
 					sname = name.replace(" ", "_")
 				else:
 					sname = name
-
-				if len(dex) == 5:
-					dex = dex[2:]
-				else:
-					dex = dex
+				
+				print("Alola dex")
+				if dex > 9999: dex %= 1000
+				print(dex)
+				
+			#	if len(dex) == 5:
+			#		dex = dex[2:]
+			#	else:
+			#		dex = dex
 
 #				bot.reply_to(m,
 #				"_#" + dex + "_ - " + "*" + name + "*\n" + tipos + "\n\n`PS`: " + str(cbhp) + str(hp) +
@@ -304,8 +315,10 @@ def command_stats(m):
 				ficha = "_# {0}_ - *{1}*\n{2}\n\n`PS:` {3}{4}\n`Ataque:` {5}{6}\n`Defensa:` {7}{8}\n`Atk. Esp.:` {9}{10}\n`Def. Esp.:` {11}{12}\n`Velocidad:` {13}{14}\n`Total:` {15}\n\n{16}\n[⁣]({17}\n[{1} en Smogon](http://www.smogon.com/dex/sm/pokemon/{18})"
 				bot.reply_to(m, ficha.format(dex, name, tipos, cbhp, hp, cbatk, atk, cbdefe, defe, cbatksp, atksp, cbdefsp, defsp, cbspd, spd, t, habilidades, imgpkm, sname), parse_mode = "Markdown")
 
-
-				print("_#" + dex + "_ - " + "*" + name + "*\n" + tipos + "\n\n`PS`: " + str(cbhp) + str(hp) +"\n`Ataque` " + str(cbatk) + str(atk) + "\n`Defensa` " + str(cbdefe)+ str(defe) + "\n`Atk. Esp.` " + str(cbatksp) + str(atksp) + "\n`Def. Esp.` " + str(cbdefsp) + str(defsp) + "\n`Velocidad` " + str(cbspd) + str(spd) + "\n`Total` " + str(t) + "\n\n" + habilidades + "\n" + "[⁣](" + imgpkm + "\n\n["+name+ " en Smogon](http://www.smogon.com/dex/sm/pokemon/" + name + ")")
+				#print("L318. Parece que L319 peta al ser dex un INT")
+				#print("_#" + dex + "_ - " + "*" + name + "*\n" + tipos + "\n\n`PS`: " + str(cbhp) + str(hp) +"\n`Ataque` " + str(cbatk) + str(atk) + "\n`Defensa` " + str(cbdefe)+ str(defe) + "\n`Atk. Esp.` " + str(cbatksp) + str(atksp) + "\n`Def. Esp.` " + str(cbdefsp) + str(defsp) + "\n`Velocidad` " + str(cbspd) + str(spd) + "\n`Total` " + str(t) + "\n\n" + habilidades + "\n" + "[⁣](" + imgpkm + "\n\n["+name+ " en Smogon](http://www.smogon.com/dex/sm/pokemon/" + name + ")")
+				print("L320. Estoy aquí porque estoy comprobando si dex necesita ser pasado a str en el print o no.")
+				print("_#" + str(dex) + "_ - " + "*" + name + "*\n" + tipos + "\n\n`PS`: " + str(cbhp) + str(hp) +"\n`Ataque` " + str(cbatk) + str(atk) + "\n`Defensa` " + str(cbdefe)+ str(defe) + "\n`Atk. Esp.` " + str(cbatksp) + str(atksp) + "\n`Def. Esp.` " + str(cbdefsp) + str(defsp) + "\n`Velocidad` " + str(cbspd) + str(spd) + "\n`Total` " + str(t) + "\n\n" + habilidades + "\n" + "[⁣](" + imgpkm + "\n\n["+name+ " en Smogon](http://www.smogon.com/dex/sm/pokemon/" + name + ")")
 
 				flagr = 2
 			else:
@@ -336,26 +349,33 @@ def command_stats(m):
 	#		else:
 	#			habilidades = "`Habilidad` " + str(hab1)
 			print("¿Tiene habilidad 2?: " + hab2)
+			print("Confirmamos si tiene o no habilidad 2:")
 			if (((hab2 == " ") or (hab2 == "No tiene")) and ((habo == " ") or (habo == "No tiene"))):
+				print("hab2 error en if")
 				habilidades = "`Habilidad` " + str(hab1)
 			elif ((habo == " ") or (habo == "No tiene")):
 				habilidades = "`Habilidad 1` " + str(hab1) + "\n`Habilidad 2` " + str(hab2)
+				print("elif1")
 			elif ((hab2 == " ") or (hab2 == "No tiene")):
 				habilidades = "`Habilidad 1` " + str(hab1) + "\n`Hab. Oculta` " + str(habo)
+				print("elif2")
 			else:
-				habilidades = "`Habilidad 1` " + str(hab1) + "\n`Habilidad 2` " + str(hab2) + "\n`Hab. Oculta` " + str(habo)
+				habilidades = "`Habilidad 1` " + str(hab1) + "\n`Habilidad 2` " + str(hab2) + "\n`Hab. Oculta` " + str(habo)	
+				print("Else")
 
-
+			print("Hemos confirmado la hab2. Vamos a confirmar el tipo2")
 			if (tipo2 is not " "):
 				tipos = "`" + tipo1 + etipo1 + "`\n" + "`" + tipo2 + etipo2 + "`"
 			else:
 				tipos = tipo1 + etipo1
-
+			
+			print("Add ')' a los links que sean necesarios")
 			if ")" in imgpkm:
 				imgpkm = imgpkm
 			else:
 				imgpkm = imgpkm + ")"
-
+			
+			print("Empezamos comprovacion de Pokemons especiales")
 			if "Código cero" in name:
 				sname = "type\_null"
 			elif "Lycanroc nocturno" in name:
@@ -370,13 +390,21 @@ def command_stats(m):
 				sname = name.replace(" ", "_")
 			else:
 				sname = name
+			
+			print("dex sin mega ni alola")
+			if dex > 9999: dex %= 1000
+			print(dex)
+		#	try:
+		#		if len(dex) == 5:
+		#			print("Entramos al if")
+		#			dex = dex[2:]
+		#		else:
+		#			print("Entramos al else")
+		#			dex = dex
+		#	except Exception as e:
+		#		print(e)
 
-			if len(dex) == 5:
-				dex = dex[2:]
-			else:
-				dex = dex
-
-
+			print("Procedemos a enviar la ficha al chat")
 			ficha = "_# {0}_ - *{1}*\n{2}\n\n`PS:` {3}{4}\n`Ataque:` {5}{6}\n`Defensa:` {7}{8}\n`Atk. Esp.:` {9}{10}\n`Def. Esp.:` {11}{12}\n`Velocidad:` {13}{14}\n`Total:` {15}\n\n{16}\n[⁣]({17}\n[{1} en Smogon](http://www.smogon.com/dex/sm/pokemon/{18})"
 			bot.reply_to(m, ficha.format(dex, name, tipos, cbhp, hp, cbatk, atk, cbdefe, defe, cbatksp, atksp, cbdefsp, defsp, cbspd, spd, t, habilidades, imgpkm, sname), parse_mode = "Markdown")
 
@@ -387,6 +415,12 @@ def command_stats(m):
 			#"\n`Def. Esp.` " + str(cbdefsp) + str(defsp) + "\n`Velocidad` " + str(cbspd) + str(spd) + "\n`Total` " + str(t) +
 			#"\n\n" + habilidades + "\n" + "[⁣](" + imgpkm
 			#+ "\n["+name+ " en Smogon](http://www.smogon.com/dex/sm/pokemon/" + sname + ")", parse_mode = "Markdown")
-			print("_#" + dex + "_ - " + "*" + name + "*\n" + tipos + "\n\n`PS`: " + str(cbhp) + str(hp) +"\n`Ataque` " + str(cbatk) + str(atk) + "\n`Defensa` " + str(cbdefe)+ str(defe) + "\n`Atk. Esp.` " + str(cbatksp) + str(atksp) + "\n`Def. Esp.` " + str(cbdefsp) + str(defsp) + "\n`Velocidad` " + str(cbspd) + str(spd) + "\n`Total` " + str(t) + "\n\n" + habilidades + "\n" + "[⁣](" + imgpkm + "\n\n["+name+ " en Smogon](http://www.smogon.com/dex/sm/pokemon/" + name + ")")
-	except:
+			
+			#print("L419. Parece que L319 peta al ser dex un INT")
+			#print("_#" + dex + "_ - " + "*" + name + "*\n" + tipos + "\n\n`PS`: " + str(cbhp) + str(hp) +"\n`Ataque` " + str(cbatk) + str(atk) + "\n`Defensa` " + str(cbdefe)+ str(defe) + "\n`Atk. Esp.` " + str(cbatksp) + str(atksp) + "\n`Def. Esp.` " + str(cbdefsp) + str(defsp) + "\n`Velocidad` " + str(cbspd) + str(spd) + "\n`Total` " + str(t) + "\n\n" + habilidades + "\n" + "[⁣](" + imgpkm + "\n\n["+name+ " en Smogon](http://www.smogon.com/dex/sm/pokemon/" + name + ")")
+			print("L421. Estoy aquí porque estoy comprobando si dex necesita ser pasado a str en el print o no.")
+			print("_#" + str(dex) + "_ - " + "*" + name + "*\n" + tipos + "\n\n`PS`: " + str(cbhp) + str(hp) +"\n`Ataque` " + str(cbatk) + str(atk) + "\n`Defensa` " + str(cbdefe)+ str(defe) + "\n`Atk. Esp.` " + str(cbatksp) + str(atksp) + "\n`Def. Esp.` " + str(cbdefsp) + str(defsp) + "\n`Velocidad` " + str(cbspd) + str(spd) + "\n`Total` " + str(t) + "\n\n" + habilidades + "\n" + "[⁣](" + imgpkm + "\n\n["+name+ " en Smogon](http://www.smogon.com/dex/sm/pokemon/" + name + ")")
+
+	except Exception as e:
+		print(e)
 		bot.reply_to(m, "Introduce un pokémon, por favor.")
